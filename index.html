@@ -8,6 +8,7 @@
   <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>gifted</title>
@@ -26,9 +27,30 @@
   <main>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-12">
-          <div id="app"></div>
+        <div class="col-3 h-100 bg-dark text-light side-bar">
+          <form onsubmit="app.giftsController.createGift()">
+            <div class="mb-3">
+              <label for="tag" class="form-label">Tag</label>
+              <input type="text" class="form-control" id="tag" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="url" class="form-label">URL</label>
+              <input type="text" class="form-control" id="url">
+            </div>
+            <button type="submit" class="btn btn-primary m-3">Send Gift</button>
+          </form>
+          <section>
+            <form onsubmit="app.giftsController.search(str)">
+              <input id="search" type="text">
+              <button class="btn btn-primary"><i class="mdi mdi-magnify"></i></button>
+            </form>
+          </section>
         </div>
+        <section class="col-9 container">
+          <div class="row " id="gifts">
+            <!-- NOTE gift section -->
+          </div>
+        </section>
       </div>
     </div>
   </main>
@@ -38,6 +60,7 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.23.0/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
